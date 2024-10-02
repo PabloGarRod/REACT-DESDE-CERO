@@ -4,7 +4,7 @@ import { TURNS, RESULTS } from "../constants";
 import { Square } from "./Square";
 import { WinnerModal } from "./WinnerModal";
 import { checkEndGame, checkWinnerFrom } from "../logic/board";
-import { resetStorage, saveGame } from "../logic/storage";
+import { resetStorage, saveGameToStorage } from "../logic/storage";
 
 export const BoardGame = () => {
   const [board, setBoard] = useState(() => {
@@ -38,7 +38,7 @@ export const BoardGame = () => {
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
     // guardar partida
-    saveGame({ board: newBoard, turn: newTurn });
+    saveGameToStorage({ board: newBoard, turn: newTurn });
     // revisar ganador
     const newWinner = checkWinnerFrom(newBoard);
     if (newWinner) {
