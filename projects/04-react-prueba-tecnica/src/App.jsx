@@ -6,9 +6,9 @@ import {
 import "./App.css";
 
 export function App() {
-  const [fact, setFact] = useState();
-  const [imageUrl, setImageUrl] = useState();
-  const [factError, setFactError] = useState();
+  const [fact, setFact] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [factError, setFactError] = useState("");
 
   useEffect(() => {
     async function getRandomFact() {
@@ -40,6 +40,7 @@ export function App() {
         {factError ? (
           <>
             <h1>Error al cargar la imagen</h1>
+            <p>{factError}</p>
           </>
         ) : (
           <>
@@ -47,7 +48,7 @@ export function App() {
             {imageUrl && (
               <img
                 src={imageUrl}
-                alt={`Image extracted using the first three wrods for ${fact}`}
+                alt={`Image extracted using the first three words for ${fact}`}
               />
             )}
           </>
