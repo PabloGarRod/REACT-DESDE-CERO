@@ -19,3 +19,7 @@ section img {
   max-width: 320px;
   height: auto;
 }
+
+section h1 {
+  color: red;
+}

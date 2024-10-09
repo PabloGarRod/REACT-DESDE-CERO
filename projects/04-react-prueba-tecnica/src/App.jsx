@@ -8,6 +8,7 @@ import "./App.css";
 export function App() {
   const [fact, setFact] = useState();
   const [imageUrl, setImageUrl] = useState();
+  const [factError, setFactError] = useState();
 
   useEffect(() => {
     async function getRandomFact() {
@@ -18,6 +19,7 @@ export function App() {
         setFact(fact);
       } catch (error) {
         console.error("Error fetching the cat fact:", error);
+        setFactError(error.message);
       }
     }
 
@@ -35,12 +37,20 @@ export function App() {
     <main>
       <h1>App de gatitos</h1>
       <section>
-        {fact && <p>{fact}</p>}
-        {imageUrl && (
-          <img
-            src={imageUrl}
-            alt={`Image extracted using the first three wrods for ${fact}`}
-          />
+        {factError ? (
+          <>
+            <h1>Error al cargar la imagen</h1>
+          </>
+        ) : (
+          <>
+            {fact && <p>{fact}</p>}
+            {imageUrl && (
+              <img
+                src={imageUrl}
+                alt={`Image extracted using the first three wrods for ${fact}`}
+              />
+            )}
+          </>
         )}
       </section>
     </main>
