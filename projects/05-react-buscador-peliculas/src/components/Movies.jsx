@@ -2,6 +2,7 @@ import noResults from "../mocks/no-results.json";
 
 export default function Movies({ movies }) {
   const hasMovies = movies?.length > 0;
+
   function HasMovies() {
     return (
       <ul className="movies">
