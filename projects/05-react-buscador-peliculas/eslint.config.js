@@ -26,18 +26,25 @@ export default [
     rules: {
       ...js.configs.recommended.rules,
       ...react.configs.recommended.rules,
+      // "react/props-type": "off",
       "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
       "react-refresh/only-export-components": [
         "warn",
         { allowConstantExport: true },
       ],
     },
+
     settings: {
       react: {
         version: "detect",
       },
+    },
+  },
+  {
+    files: ["**/*.{js,jsx}"],
+    rules: {
+      "react/prop-types": "off",
     },
   },
 ];

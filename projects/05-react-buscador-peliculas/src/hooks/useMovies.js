@@ -1,6 +1,4 @@
 import { useState, useRef, useMemo, useCallback } from "react";
-import results from "../mocks/results.json";
-import noResults from "../mocks/no-results.json";
 import { searchMovies } from "../services/searchMovies";
 
 export function useMovies({ search, sort }) {

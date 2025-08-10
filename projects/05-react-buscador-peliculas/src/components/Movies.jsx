@@ -1,3 +1,4 @@
+import React from "react";
 import noResults from "../mocks/no-results.json";
 
 export default function Movies({ movies }) {

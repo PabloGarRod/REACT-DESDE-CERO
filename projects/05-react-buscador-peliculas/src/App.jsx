@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Movies from "./components/Movies";
 import { useMovies } from "./hooks/useMovies";
 import { useSearch } from "./hooks/useSearch";
@@ -12,9 +12,7 @@ function App() {
   const { movies, getMovies, loading } = useMovies({ search, sort });
 
   const debouncedGetMovies = useCallback(
-    debounce((search) => {
-      getMovies({ search });
-    }, 300),
+    debounce((search) => getMovies({ search }), 300),
     []
   );
 

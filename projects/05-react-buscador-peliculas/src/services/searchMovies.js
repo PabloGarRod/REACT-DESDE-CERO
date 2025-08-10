@@ -20,7 +20,7 @@ export const searchMovies = async ({ search }) => {
     }));
 
     return mappedMovies;
-  } catch (error) {
+  } catch {
     throw new Error("Error searching movies");
   }
 };
